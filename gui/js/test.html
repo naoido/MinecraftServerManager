@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+  <button @click="active = !active">acitve切り替え</button>
+  <button @click="type = !type">type切り替え</button>
+  <span>type : {{type}}</span>
+  <transition>
+    <div v-show="active" :class="{type: type}">トランジションの対象</div>
+  </transition>
+</div>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      active: true,
+      type: true,
+    },
+  });
+</script>
+<style>
+  .v-enter-active,
+  .v-leave-active {
+    transition: 3s;
+  }
+
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+
+  .type.v-enter-active,
+  .type.v-leave-active {
+    transition: .3s;
+  }
+
+  .type.v-enter,
+  .type.v-leave-to {
+    opacity: 0;
+  }
+</style>
+</body>
+</html>

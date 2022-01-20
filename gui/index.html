@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Server Version Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.min.js"></script>
+    <script src="../eel.js"></script>
+</head>
+<body>
+    <nav>
+        <div id="vue_menu"></div>
+    </nav>
+    <div id="alert">
+        <div id="alert_box">
+            <transition-group name="alert" tag="div">
+                <div v-for="(data, index) in alerts" :key="data.key" :color="color[index]" class="alert" >{{data.text}}</div>
+            </transition-group>
+        </div>
+    </div>
+    <div id="ver_list"></div>
+    <div id="cmd-line"></div>
+</body>
+<script src="js/index.js"></script>
+</html>
